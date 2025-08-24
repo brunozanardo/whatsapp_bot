@@ -1,4 +1,5 @@
 from flask import Blueprint, current_app, jsonify, request
+import re
 
 whatsapp_bp = Blueprint('whatsapp', __name__)
 
@@ -12,6 +13,19 @@ def classify_intent(message):
         return 'saudacao'
 
     # Cardápio
+    if re.search(r'\b(card[aá]pio|menu|pratos?)\b', message_lower):
+        return 'cardapio'
+
+    # Ingredientes
+    if re.search(r'\b(ingredientes?|que leva|o que vai)\b', message_lower):
+        return 'ingredientes'
+
+    # Modo de preparo
+    if re.search(r'\b(modo de preparo|como (?:fazer|preparar|cozinhar)|preparo)\b', message_lower):
+        return 'modo_preparo'
+
+    # Caso padrão
+    return 'desconhecida'
 
 
 @whatsapp_bp.route('/whatsapp', methods=['POST'])
