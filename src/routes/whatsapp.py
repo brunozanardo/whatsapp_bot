@@ -1,15 +1,4 @@
-from flask import Blueprint, request, jsonify
-import requests
-import os
-import json
-from datetime import datetime
-
-from utils.cardapio import (
-    get_cardapio_completo,
-    get_ingredientes,
-    get_modo_preparo,
-)
-
+from flask import Blueprint
 
 whatsapp_bp = Blueprint('whatsapp', __name__)
 
