@@ -10,7 +10,9 @@ typebot_bp = Blueprint('typebot', __name__)
 def get_cardapio_completo():
     """Retorna o cardápio completo"""
     try:
-        df = pd.read_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "cardapio_exemplo.csv"))
+        df = pd.read_csv(
+            os.path.join(os.path.dirname(__file__), "..", "..", "cardapio_exemplo.csv")
+        )
         cardapio = "🍽️ *CARDÁPIO COMPLETO* 🍽️\n\n"
         
         for index, row in df.iterrows():
@@ -27,7 +29,9 @@ def get_cardapio_completo():
 def get_ingredientes(prato_nome):
     """Retorna os ingredientes de um prato específico"""
     try:
-        df = pd.read_csv('cardapio_exemplo.csv')
+        df = pd.read_csv(
+            os.path.join(os.path.dirname(__file__), "..", "..", "cardapio_exemplo.csv")
+        )
         prato = df[df['prato'].str.contains(prato_nome, case=False, na=False)]
         
         if not prato.empty:
@@ -48,7 +52,9 @@ def get_ingredientes(prato_nome):
 def get_modo_preparo(prato_nome):
     """Retorna o modo de preparo de um prato específico"""
     try:
-        df = pd.read_csv('cardapio_exemplo.csv')
+        df = pd.read_csv(
+            os.path.join(os.path.dirname(__file__), "..", "..", "cardapio_exemplo.csv")
+        )
         prato = df[df['prato'].str.contains(prato_nome, case=False, na=False)]
         
         if not prato.empty:
