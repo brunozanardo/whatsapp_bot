@@ -1,6 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify
 import requests
 import os
+
 
 typebot_bp = Blueprint('typebot', __name__)
 
@@ -29,3 +30,21 @@ def send_to_typebot(session_id, message):
         return {"error": "Typebot request timed out"}
     except Exception as e:
         return {"error": str(e)}
+
+
+@typebot_bp.route('/webhook', methods=['POST'])
+def typebot_webhook():
+    """Recebe mensagens e encaminha para o Typebot."""
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'invalid payload'}), 400
+
+    session_id = data.get('sessionId') or data.get('session_id')
+    message = data.get('message')
+
+    if not session_id or not message:
+        return jsonify({'error': 'missing sessionId or message'}), 400
+
+    response = send_to_typebot(session_id, message)
+    status_code = 200 if 'error' not in response else 500
+    return jsonify(response), status_code
