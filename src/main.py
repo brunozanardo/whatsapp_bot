@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask
 from flask_cors import CORS
 from routes.whatsapp import whatsapp_bp
 from routes.typebot import typebot_bp
