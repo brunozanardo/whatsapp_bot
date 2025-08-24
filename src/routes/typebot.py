@@ -1,15 +1,6 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint
 import requests
 import os
-import json
-from datetime import datetime
-
-from utils.cardapio import (
-    get_cardapio_completo,
-    get_ingredientes,
-    get_modo_preparo,
-)
-
 
 typebot_bp = Blueprint('typebot', __name__)
 
