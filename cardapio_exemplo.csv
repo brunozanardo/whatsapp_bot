@@ -1,0 +1,6 @@
+prato,preco,descricao,ingredientes,modo_preparo,tempo_preparo,link_compra
+Moqueca de Pirarucu,55.00,Deliciosa moqueca com pirarucu fresco,Pirarucu, azeite de dendê, pimentões, cebola, tomate, leite de coco, coentro, arroz branco,Farra de sabores amazônicos,60 minutos,https://exemplo.com/moqueca
+Tucumã com Queijo,15.00,Sanduíche regional com tucumã e queijo coalho,Pão francês, tucumã, queijo coalho,Misto quente amazônico,10 minutos,https://exemplo.com/tucuma
+Caldeirada de Tambaqui,48.00,Caldeirada de peixe fresco com legumes,Tambaqui, batata, cenoura, pimentões, cebola, tomate, cheiro-verde, pirão,Sopa revigorante,75 minutos,https://exemplo.com/caldeirada
+Açaí na Tigela,20.00,Açaí puro com granola e banana,Açaí, granola, banana, mel,Energia da floresta,5 minutos,https://exemplo.com/acai
+
